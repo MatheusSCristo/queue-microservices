@@ -15,6 +15,10 @@ if (!region) {
 
 const snsClient = new SNSClient({ region });
 
+app.get('/', (_req: Request, res: Response) => {
+  res.json({ status: 'ok', service: 'order-service' });
+});
+
 app.post('/orders', async (req: Request, res: Response): Promise<void> => {
   try {
     const { customerName, amount } = req.body;
